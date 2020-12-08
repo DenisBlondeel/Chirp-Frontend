@@ -1,0 +1,14 @@
+.submitbutton{
+    margin-top: 20px;
+    width: 100px!important;
+      min-width: unset!important
+}
+
+.example-full-width{
+    width: 50%
+    
+}
+
+mat-form-field {
+    font-size: 1.4em
+}

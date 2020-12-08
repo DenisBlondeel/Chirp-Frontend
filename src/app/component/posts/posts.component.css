@@ -1,0 +1,30 @@
+mat-grid-tile{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 2px #C0C0C0;
+}
+
+ 
+.sidenav{
+    background-color: #F0F2F5;
+}
+
+.aside{
+    background-color: #F0F2F5;
+}
+
+.content{
+    background-color: #F0F2F5;
+}
+
+.super{
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+
+    height: 100%;
+}
+
+.new-post{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
