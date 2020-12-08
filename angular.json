@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chirp-frontend"
+    }
+  },
+  "defaultProject": "chirp-frontend",
+  "cli": {
+    "analytics": "c4a8ba0e-e39d-4be1-90e2-bc00c2aff31a"
+  }
 }
