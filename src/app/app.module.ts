@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './auth/auth.init';
+import { WelcomeComponent } from './component/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { initializeKeycloak } from './auth/auth.init';
     NewPostComponent,
     PostsComponent,
     PostDetailComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
