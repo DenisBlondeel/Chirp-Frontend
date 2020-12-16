@@ -1,0 +1,26 @@
+.super{
+    display: grid;
+    grid-template-columns: 25% 75%;
+
+    height: 90%;
+}
+
+.left{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    margin-left: 3rem;
+}
+
+p{
+    margin-top: 3rem;
+    margin-bottom: 1em;
+}
+
+#login {
+    margin-right: 0.5rem;
+}
+
+img{
+    margin-top: 3rem;
+    justify-self: center;
+}

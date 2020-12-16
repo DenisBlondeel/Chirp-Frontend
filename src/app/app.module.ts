@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './auth/auth.init';
+import { WelcomeComponent } from './component/welcome/welcome.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     NewPostComponent,
     PostsComponent,
     PostDetailComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +41,17 @@ import {MatCardModule} from '@angular/material/card';
     MatGridListModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
