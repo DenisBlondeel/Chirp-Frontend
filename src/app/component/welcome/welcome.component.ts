@@ -12,10 +12,10 @@ export class WelcomeComponent implements OnInit {
   constructor(private keycloakService: KeycloakService, private router: Router) { }
 
   ngOnInit(): void {
-    this.test();
+    this.checkIfLoggedIn();
   }
 
-  test(){
+  checkIfLoggedIn(){
     if(!this.keycloakService.isTokenExpired()){
       this.router.navigate(['/overview']);
     }
