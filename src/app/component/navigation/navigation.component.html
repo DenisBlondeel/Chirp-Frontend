@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>Chirp</span>
+      <span>Chirp</span> 
+      <button (click)="logout()" id="login" mat-raised-button color="primary" *appPermission="'user'">Log Out</button>
     </mat-toolbar-row>
   
 

@@ -4,3 +4,9 @@
   span {
     margin-left: 2rem;
   }
+
+  button{
+    position: absolute; right: 0;
+    margin-right: 3rem;
+    padding-right: 16px;
+  }
