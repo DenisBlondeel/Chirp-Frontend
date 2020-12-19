@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Chirp</span> 
-      <button (click)="logout()" id="login" mat-raised-button color="primary" *appPermission="'user'">Log Out</button>
-    </mat-toolbar-row>
-  
+    <a [routerLink]="'/overview'">Chirp</a>
+    <a [routerLink]="'/overview'" *appPermission="'user'">Overview</a>
+    <a [routerLink]="'/profile'" *appPermission="'user'">Profile</a>
+    <button (click)="logout()" id="login" mat-raised-button color="primary" *appPermission="'user'">Log Out</button>
 
-  </mat-toolbar>
+
+
+</mat-toolbar>

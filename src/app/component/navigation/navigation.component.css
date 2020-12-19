@@ -1,12 +1,33 @@
-.example-spacer {
-    flex: 1 1 auto;
+  mat-toolbar{
+    display: flex;
+    flex-direction: row;
   }
-  span {
+
+  a{
+    color: white;
     margin-left: 2rem;
   }
 
-  button{
-    position: absolute; right: 0;
-    margin-right: 3rem;
-    padding-right: 16px;
+  a:link {
+    text-decoration: none;
   }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+
+  button{
+    font-size: 1.25rem;
+    margin-right: 2rem;
+    margin-left: auto;
+  }
+
+  
