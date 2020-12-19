@@ -20,6 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './auth/auth.init';
 import { WelcomeComponent } from './component/welcome/welcome.component';
+import { PermissionDirective } from './directive/permission.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { WelcomeComponent } from './component/welcome/welcome.component';
     PostsComponent,
     PostDetailComponent,
     WelcomeComponent,
+    PermissionDirective,
   ],
   imports: [
     BrowserModule,

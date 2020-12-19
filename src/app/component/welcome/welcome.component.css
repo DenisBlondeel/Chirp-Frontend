@@ -1,18 +1,22 @@
 .super{
     display: grid;
     grid-template-columns: 25% 75%;
-
+    margin-left: 10rem;
+    margin-bottom: 10rem;
     height: 90%;
 }
 
 .left{
     display: grid;
-    grid-template-rows: 50% 50%;
-    margin-left: 3rem;
+    grid-template-rows: 75% 25%;
 }
 
-p{
-    margin-top: 3rem;
+.buttons{
+    align-self: top;
+}
+
+.text{
+    align-self: end;
     margin-bottom: 1em;
 }
 
@@ -20,7 +24,62 @@ p{
     margin-right: 0.5rem;
 }
 
-img{
+.right{
     margin-top: 3rem;
-    justify-self: center;
+    justify-self: start;
+}
+#thoughtContainer{
+
+}
+
+img{
+    margin-left: 10rem;
+    margin-top: -3rem;
+    z-index: -5;
+}
+
+
+.thought {
+    display:flex;
+    background-color:#673AB7;
+    color: white;
+    padding:20px;
+    border-radius:30px;
+    min-width:40px;
+    max-width:220px;
+    min-height:40px;
+    margin:20px;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index: 5;
+  }
+
+  .thought:before,
+.thought:after {
+  content:"";
+  background-color:#673AB7;
+  border-radius:50%;
+  display:block;
+  position:absolute;
+  z-index: 5;
+}
+.thought:before {
+  width:44px;
+  height:44px;
+  top:-12px;
+  left:28px;
+  box-shadow:-50px 30px 0 -12px #673AB7;
+}
+.thought:after {
+  bottom:-10px;
+  right:26px;
+  width:30px;
+  height:30px;
+  box-shadow:40px -34px 0 0 #673AB7,
+             -28px -6px 0 -2px #673AB7,
+             -24px 17px 0 -6px #673AB7,
+             -5px 25px 0 -10px #673AB7;
+  
 }
