@@ -28,7 +28,7 @@ export class NewPostComponent implements OnInit {
       console.log("fuck off")
     }
     console.log(this.postForm.value);
-    this.postEvent.emit({text: this.postForm.value.postContent})
+    this.postEvent.emit({content: this.postForm.value.postContent})
     setTimeout(() => 
     this.formGroupDirective.resetForm(), 0)
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../model/post';
 import { PostsService } from '../../service/posts.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -18,7 +19,9 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts() {
-    this.posts = this.postsService.getMockdata();
+    this.postsService.getAllPosts().subscribe(
+      (result) => {this.posts = result}
+    );
   }
 
   addPost(newPost: Post){
