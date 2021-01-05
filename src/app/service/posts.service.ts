@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../model/post';
-import {HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,25 +10,19 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  private httpGetCall : string = 'http://localhost:9090/post' 
+  private posts: Post[]
+  private success: boolean = false;
 
-  getAllPosts() : Observable<Post[]>{
+  private httpPostCall: string = 'http://localhost:9090/post'
 
-    return this.http.get<Post[]>(this.httpGetCall)
+
+  getAllPosts(): Observable<Post[]> {
+
+    return this.http.get<Post[]>(this.httpPostCall)
   }
 
-  addPost(newPost: Post){
-    this.http.post(this.httpGetCall, newPost)
-    .subscribe(
-        (val) => {
-            console.log("POST call successful value returned in body", 
-                        val);
-        },
-        response => {
-            console.log("POST call in error", response);
-        },
-        () => {
-            console.log("The POST observable is now completed.");
-        });
+    addPost(newPost: Post): Observable<any> {
+      console.log(newPost)
+    return this.http.post(this.httpPostCall, newPost)
   }
 }
