@@ -17,11 +17,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './auth/auth.init';
 import { WelcomeComponent } from './component/welcome/welcome.component';
 import { PermissionDirective } from './directive/permission.directive';
+import { RegistrationComponent } from './component/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { PermissionDirective } from './directive/permission.directive';
     PostDetailComponent,
     WelcomeComponent,
     PermissionDirective,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { PermissionDirective } from './directive/permission.directive';
     MatButtonModule,
     MatCardModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
