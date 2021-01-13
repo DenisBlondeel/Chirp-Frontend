@@ -29,7 +29,7 @@ export class NewPostComponent implements OnInit {
 
     let post: Post = {
       content: this.postForm.value.postContent,
-      user: { firstName: await this.getFirstName(), lastName: await this.getLastName() }
+      user: { firstName: await this.getFirstName(), lastName: await this.getLastName(), kcId: await this.keycloakService.getKeycloakInstance().subject, email: "",  username: "denis" }
     }
 
     this.postEvent.emit(post)

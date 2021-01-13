@@ -14,7 +14,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   addUser(newUser: User): Observable<any>{
-    console.log("new user " + newUser)
     return this.http.post(this.httpUserCall, newUser)
   }
 

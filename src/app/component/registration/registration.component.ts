@@ -18,20 +18,19 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.makeUser()
   }
-    
+
   color: ThemePalette = 'accent';
   mode: ProgressSpinnerMode = 'indeterminate';
-  value = 50; 
+  value = 50;
 
   async makeUser() {
     if (await this.keycloakService.isLoggedIn) {
-      let user: User = { firstName: await this.getFirstName(), lastName: await this.getLastName() }
-      console.log("yay")
+      let user: User = { firstName: await this.getFirstName(), lastName: await this.getLastName(), username: await this.getUsername(), email: await this.getMail(), kcId: await this.getKcId() };
       this.userService.addUser(user).subscribe((val) => {
-      this.router.navigate(['/overview']);
+        this.router.navigate(['/overview']);
       },
         error => {
-          this.router.navigate(['/overview']);
+          this.router.navigate(['']);
           console.log("err");
         },
         () => {
@@ -46,6 +45,18 @@ export class RegistrationComponent implements OnInit {
 
   async getLastName() {
     return (await this.keycloakService.loadUserProfile()).lastName;
+  }
+
+  async getUsername() {
+    return (await this.keycloakService.loadUserProfile()).username;
+  }
+
+  async getMail() {
+    return (await this.keycloakService.loadUserProfile()).email;
+  }
+
+  async getKcId() {
+    return await this.keycloakService.getKeycloakInstance().subject
   }
 
 }

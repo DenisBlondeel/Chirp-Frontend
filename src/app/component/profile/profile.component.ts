@@ -11,7 +11,11 @@ export class ProfileComponent implements OnInit {
   constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
-    console.log(this.keycloakService.getUsername())
+    this.debug()
+  }
+
+  async debug(){
+    console.log(await this.keycloakService.getKeycloakInstance().token);
   }
 
 }
