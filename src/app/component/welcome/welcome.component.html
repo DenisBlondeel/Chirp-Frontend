@@ -8,7 +8,7 @@
         </div>
         <div class="buttons">
             <button (click)="login()" id="login" mat-raised-button color="primary">Log In</button>
-            <button (click)="register()" id="signup" mat-stroked-button color="primary">Register</button>
+            <a href="http://localhost:8080/auth/realms/chirp/protocol/openid-connect/registrations?client_id=chirp-web&response_type=code&scope=openid%20email&redirect_uri=http://localhost:4200/registration&kc_locale=EN" (click)="register()" id="signup" mat-stroked-button color="primary">Register</a>
         </div>
     </div>
 

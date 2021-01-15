@@ -25,8 +25,19 @@ export class PostsComponent implements OnInit {
   }
 
   addPost(newPost: Post){
-    this.posts.unshift(newPost);
-    this.postsService.addPost(newPost);
+     this.postsService.addPost(newPost).subscribe(
+       (val) => {
+        console.log("success")
+        this.posts.unshift(newPost);
+       },
+       error => {
+        console.log("err");
+       },
+       () => {
+         console.log("callback");
+       }
+     )
+      
   }
 
 }

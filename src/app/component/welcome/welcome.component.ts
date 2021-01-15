@@ -1,6 +1,6 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { Router } from '@angular/router';
-import { KeycloakService } from 'keycloak-angular';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-welcome',
@@ -24,11 +24,13 @@ export class WelcomeComponent implements OnInit {
   login(): void {
     this.keycloakService.login();
     this.router.navigate(['/overview']);
+    console.log("loggedin")
   }
 
   register(): void {
-    this.keycloakService.register();
-    this.router.navigate(['/overview']);
+    //this.keycloakService.register({loginHint: 'register'});
+    //this.router.navigate(['http://localhost:8080/auth/realms/chirp/protocol/openid-connect/registrations?client_id=chirp-web&response_type=code&scope=openid%20email&redirect_uri=http://localhost:4200/profile&kc_locale=EN']);
+    console.log("registered")
   }
 
 }
