@@ -17,5 +17,15 @@ export class UserService {
     return this.http.post(this.httpUserCall, newUser)
   }
 
+  addRole(id: string, role: string):Observable<any>{
+    const url: string = `http://localhost:9090/role/${id}/${role}`;
+    return this.http.get(url);
+  }
+
+  deleteRole(id: string, role: string):Observable<any>{
+    const url: string = `http://localhost:9090/role/${id}/${role}`;
+    return this.http.delete(url);
+  }
+
 
 }

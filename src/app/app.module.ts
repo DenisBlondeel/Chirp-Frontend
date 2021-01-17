@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { initializeKeycloak } from './auth/auth.init';
 import { WelcomeComponent } from './component/welcome/welcome.component';
 import { PermissionDirective } from './directive/permission.directive';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { HttpHeaderInterceptor } from './interceptor/httpHeaderInterceptor';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { RegistrationComponent } from './component/registration/registration.com
       multi: true,
       deps: [KeycloakService],
     },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
