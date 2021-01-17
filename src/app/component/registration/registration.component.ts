@@ -16,7 +16,13 @@ export class RegistrationComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
-    this.makeUser()
+    if (this.keycloakService.getUserRoles().indexOf("new_user") > -1) {
+      this.makeUser();
+    }
+    else {
+      this.router.navigate(['/overview']);
+    }
+
   }
 
   color: ThemePalette = 'accent';
@@ -25,16 +31,24 @@ export class RegistrationComponent implements OnInit {
 
   async makeUser() {
     if (await this.keycloakService.isLoggedIn) {
-      let user: User = { firstName: await this.getFirstName(), lastName: await this.getLastName(), username: await this.getUsername(), email: await this.getMail(), kcId: await this.getKcId() };
+      let kcid = await this.getKcId();
+      let user: User = { firstName: await this.getFirstName(), lastName: await this.getLastName(), username: await this.getUsername(), email: await this.getMail(), kcId: kcid };
       this.userService.addUser(user).subscribe((val) => {
-        this.router.navigate(['/overview']);
       },
         error => {
           this.router.navigate(['']);
           console.log("err");
         },
         () => {
-          console.log("callback");
+          this.userService.addRole(kcid, "user").subscribe((val) => {
+            this.userService.deleteRole(kcid, "new_user").subscribe((val) => {
+              this.router.navigate(['/overview']);
+            },
+              err => { },
+              () => { console.log("role rem"); })
+          },
+            err => { },
+            () => { console.log("role added"); })
         })
     }
   }
