@@ -45,10 +45,10 @@ export class RegistrationComponent implements OnInit {
               this.router.navigate(['/overview']);
             },
               err => { },
-              () => { console.log("role rem"); })
+              () => { })
           },
             err => { },
-            () => { console.log("role added"); })
+            () => { })
         })
     }
   }

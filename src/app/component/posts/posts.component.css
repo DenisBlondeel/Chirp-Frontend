@@ -1,10 +1,14 @@
-mat-grid-tile{
+td{
     background-color: white;
     border-radius: 10px;
     box-shadow: 1px 2px #C0C0C0;
 }
 
- 
+table{
+    border-collapse:separate; 
+    border-spacing: 1.5rem;
+}
+
 .sidenav{
     background-color: #F0F2F5;
 }
@@ -15,6 +19,9 @@ mat-grid-tile{
 
 .content{
     background-color: #F0F2F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .super{
@@ -24,7 +31,7 @@ mat-grid-tile{
     height: 100%;
 }
 
-.new-post{
+.app-new-post{
     margin-bottom: 10px;
     margin-top: 10px;
 }

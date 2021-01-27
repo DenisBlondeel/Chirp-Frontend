@@ -1,7 +1,9 @@
 import { Component, ViewChild, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormGroupDirective } from '@angular/forms';
 import { KeycloakService } from 'keycloak-angular';
+import { UserService } from 'src/app/service/user.service';
 import { Post } from '../../model/post';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-new-post',
@@ -27,9 +29,11 @@ export class NewPostComponent implements OnInit {
     if (this.postForm.errors) {
     }
 
+    let user: User = new User(await this.getUserName());
+
     let post: Post = {
       content: this.postForm.value.postContent,
-      user: { firstName: await this.getFirstName(), lastName: await this.getLastName(), kcId: await this.keycloakService.getKeycloakInstance().subject, email: "",  username: "denis" }
+      user: user
     }
 
     this.postEvent.emit(post)
@@ -51,6 +55,10 @@ export class NewPostComponent implements OnInit {
   async getLastName(){
     return (await this.keycloakService.loadUserProfile()).lastName;
    }
+
+   async getUserName() {
+    return (await this.keycloakService.loadUserProfile()).username
+  }
 
 
 

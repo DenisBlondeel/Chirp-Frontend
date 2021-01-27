@@ -2,17 +2,15 @@
     <div class="sidenav">
     </div>
     <div class="content">
-        <mat-grid-list class="new-post" cols="1" rowHeight="3:1" gutterSize="10">
-            <mat-grid-tile>
-                <app-new-post (postEvent)="addPost($event)"></app-new-post>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="1" rowHeight="3:1" gutterSize="10">
-            <mat-grid-tile *ngFor="let post of posts">
-                <app-post-detail [post]="post">
-                </app-post-detail>
-            </mat-grid-tile>
-        </mat-grid-list>
+        <app-new-post (postEvent)="addPost($event)"></app-new-post>
+        <table>
+            <tr *ngFor="let post of posts">
+                <td>
+                    <app-post-detail [post]="post">
+                    </app-post-detail>
+                </td>
+            </tr>
+        </table>
     </div>
     <div class="aside">
         left

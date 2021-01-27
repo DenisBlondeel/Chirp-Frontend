@@ -1,5 +1,13 @@
+#postContent{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
 
-div{
-    width: 575px;
+#like{
+    margin-left: 1.5rem;
+}
+
+#content{
+    margin-left: 1.5rem;
 }
 
